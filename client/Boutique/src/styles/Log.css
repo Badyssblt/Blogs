@@ -13,7 +13,8 @@
 
 .sideForm {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 40%;
     height: auto;
     background-image: url("../../public/assets/svg/backgroundform.svg");
@@ -27,6 +28,16 @@
     color: white;
 }
 
+
+
+.registerbtn {
+    font-family: 'Space Grotesk';
+    background: #F8F3F3;
+    height: 40px;
+    width: 100px;
+    border-radius: 15px;
+    padding: 8px;
+}
 
 
 .contentForm {
@@ -56,6 +67,7 @@
     border-radius: 20px;
     background-color: #F8F3F3;
     border: none;
+    font-family: 'Space Grotesk';
     
 }
 
