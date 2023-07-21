@@ -1,0 +1,64 @@
+.mainForm {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: 500px;
+}
+
+.log-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+}
+
+.sideForm {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    height: auto;
+    background-image: url("../../public/assets/svg/backgroundform.svg");
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.titleSideForm {
+    margin-top: 10vh;
+    font-family: 'Space Grotesk';
+    color: white;
+}
+
+
+
+.contentForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;  
+    width: 60%;
+    background: white;
+    height: auto;
+}
+
+.titleForm {
+    font-family: 'Space Grotesk';
+    }
+
+.form {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn {
+    height: 30px;
+    padding-left: 10px;
+    border-radius: 20px;
+    background-color: #F8F3F3;
+    border: none;
+    
+}
+
+.btn::placeholder {
+    font-family: 'Space Grotesk';
+}

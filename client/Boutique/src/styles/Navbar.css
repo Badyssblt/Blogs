@@ -1,0 +1,25 @@
+a {
+    text-decoration: none;
+    font-family: 'Inter';
+}
+
+.navigation {
+    width: 100%;
+}
+
+.navigation ul {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+}
+
+.navigation li, .navigation a {
+    list-style-type: none;
+    color: black;
+}
+
+.Logo a {
+    font-family: 'Merriweather';
+    font-size: 36px;
+}
