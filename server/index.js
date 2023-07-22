@@ -7,8 +7,16 @@ const connectDB = require("./config/db");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv").config();
 const { checkUser, requireAuth } = require("./middlewares/auth.middleware");
+const cors = require("cors");
 
 connectDB();
+
+const corsOptions = {
+  origin: "http://localhost:5173",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

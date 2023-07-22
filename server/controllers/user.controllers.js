@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const ObjectID = require("mongoose").Types.ObjectId;
 const userModel = require("../models/user.model");
 const postModel = require("../models/post.model");
+const { signUpErrors, signInErrors } = require("../utils/errors.utils");
 const salt = 10;
 const maxAge = 3 * 24 * 60 * 60 * 1000;
 
@@ -26,20 +27,22 @@ module.exports.userSignup = async (req, res) => {
     });
     res.status(200).json({ message: "Utilisateur crée", user: user });
   } catch (err) {
-    res.status(400).json(err);
+    const errors = signUpErrors(err);
+    res.status(400).send({ errors });
   }
 };
 
 module.exports.userSignin = async (req, res) => {
-  if (!req.body.email) {
-    res.status(400).json({ message: "Veuillez entrer une email !" });
-  }
   const { email, password } = req.body;
-
-  const user = await userModel.login(email, password);
-  const token = createToken(user._id);
-  res.cookie("jwt", token, { httpOnly: true, maxAge });
-  res.status(200).json({ user: user._id });
+  try {
+    const user = await userModel.login(email, password);
+    const token = createToken(user._id);
+    res.cookie("jwt", token, { httpOnly: true, maxAge });
+    res.status(200).json({ user: user._id });
+  } catch (err) {
+    const errors = signInErrors(err);
+    res.status(200).json({ errors });
+  }
 };
 
 module.exports.userInfo = (req, res) => {
@@ -60,7 +63,7 @@ module.exports.userInfo = (req, res) => {
 
 module.exports.userLogout = (req, res) => {
   res.cookie("jwt", "", { maxAge: 1 });
-  res.redirect("/");
+  res.status(200).json({ message: "Déconnexion réussie" });
 };
 
 module.exports.userLikes = async (req, res) => {
