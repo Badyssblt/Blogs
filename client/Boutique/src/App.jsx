@@ -4,9 +4,13 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import { UidContext } from "./component/AppContext";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { getUser } from "./actions/user.action";
+import { getPosts } from "./actions/post.action";
 
 function App() {
   const [uid, SetUid] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchToken = async () => {
@@ -17,11 +21,11 @@ function App() {
       })
         .then((res) => {
           SetUid(res.data);
-          console.log(res);
         })
         .catch((err) => console.log("No token"));
     };
     fetchToken();
+    if (uid) dispatch(getUser(uid));
   }, [uid]);
 
   return (

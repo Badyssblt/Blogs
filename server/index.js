@@ -8,6 +8,7 @@ const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv").config();
 const { checkUser, requireAuth } = require("./middlewares/auth.middleware");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 
 connectDB();
 
@@ -17,9 +18,9 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // jwt

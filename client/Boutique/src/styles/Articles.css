@@ -1,0 +1,18 @@
+.articles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.article {
+    width: 300px;
+}
+
+.article img {
+    width: 200px;
+    height: 250px;
+}
+
+.articles h1 {
+    font-family: 'Space Grotesk';
+}
