@@ -72,9 +72,7 @@ module.exports.userLikes = async (req, res) => {
       req.params.id,
       { $addToSet: { likes: req.body.likes } },
       { new: true, upsert: true, setDefaultsOnInsert: true }
-    ).then(
-      res.status(200).json({ message: "L'article a été ajouté aux favoris" })
-    );
+    ).then(res.status(200).json({ message: req.body }));
   } catch (err) {
     console.log(err);
   }

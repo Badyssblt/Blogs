@@ -8,7 +8,6 @@ module.exports.checkUser = (req, res, next) => {
       if (err) {
         res.locals.user = null;
         res.cookie("jwt", "", { maxAge: 1 });
-        next();
       } else {
         let user = await UserModel.findById(decodedToken.id);
         res.locals.user = user;
@@ -17,6 +16,7 @@ module.exports.checkUser = (req, res, next) => {
     });
   } else {
     res.locals.user = null;
+    next();
   }
 };
 
@@ -33,7 +33,7 @@ module.exports.requireAuth = (req, res, next) => {
       }
     });
   } else {
-    res.send({ message: "No Token" });
+    res.send();
     next();
   }
 };

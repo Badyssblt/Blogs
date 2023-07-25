@@ -12,20 +12,28 @@ function App() {
   const [uid, SetUid] = useState(null);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const fetchToken = async () => {
-      await axios({
-        method: "get",
-        url: "http://localhost:5000/jwtid",
+  const fetchToken = async () => {
+    try {
+      const res = await axios.get("http://localhost:5000/jwtid", {
         withCredentials: true,
-      })
-        .then((res) => {
-          SetUid(res.data);
-        })
-        .catch((err) => console.log("No token"));
-    };
+      });
+      SetUid(res.data);
+    } catch (err) {
+      SetUid(null);
+    }
+  };
+
+  // Utilise un useEffect avec une dépendance vide pour ne récupérer le token qu'une seule fois lors du montage initial
+  useEffect(() => {
     fetchToken();
-    if (uid) dispatch(getUser(uid));
+  }, []);
+
+  // Utilise un autre useEffect pour appeler getUser(uid) lorsque uid est mis à jour
+  useEffect(() => {
+    if (uid !== null) {
+      dispatch(getUser(uid));
+      console.log(uid);
+    }
   }, [uid]);
 
   return (

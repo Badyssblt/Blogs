@@ -1,4 +1,4 @@
-a {
+a, .connect {
     text-decoration: none;
     font-family: 'Inter';
 }
@@ -20,7 +20,16 @@ a {
     color: black;
 }
 
+
+
 .Logo a {
     font-family: 'Merriweather';
     font-size: 36px;
+}
+
+.user-cat {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-self: flex-end;
 }

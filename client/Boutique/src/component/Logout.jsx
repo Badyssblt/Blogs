@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import cookie from "js-cookie";
-import { Navigate } from "react-router-dom";
 
 const Logout = () => {
   const removeCookie = (key) => {

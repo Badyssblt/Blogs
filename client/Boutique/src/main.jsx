@@ -11,6 +11,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { getPosts } from "./actions/post.action.js";
 
 const store = configureStore({ reducer: rootReducer, devTools: true });
+store.dispatch(getPosts());
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
