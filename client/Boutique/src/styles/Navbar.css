@@ -1,7 +1,10 @@
-
+body {
+    margin: 0;
+}
 a, .connect {
     text-decoration: none;
     font-family: 'Inter';
+    position: relative;
 }
 
 .navigation {
@@ -19,7 +22,6 @@ a, .connect {
 
 .navigation li, .navigation a {
     list-style-type: none;
-    color: black;
 }
 
 
@@ -34,4 +36,20 @@ a, .connect {
     flex-direction: row;
     gap: 15px;
     justify-self: flex-end;
+}
+
+.cart {
+    position: relative;
+}
+
+.items-cart {
+    position: absolute;
+    bottom: 0;
+    background: red;
+    text-align: center;
+    padding: 1px;
+    right: 0;
+    font-size: 0.7em;
+    color: #73A580;
+    font-weight: 600;
 }

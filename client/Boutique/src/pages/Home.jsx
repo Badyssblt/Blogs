@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { getPosts } from "../actions/post.action";
 import axios from "axios";
 import Discover from "../component/Discover";
+import Cart from "../component/Cart";
 
 const Home = () => {
   const [load, setLoad] = useState(true);

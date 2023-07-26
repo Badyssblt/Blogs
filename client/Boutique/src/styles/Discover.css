@@ -20,10 +20,23 @@
 }
 
 .hero-banner img {
-    width: 450px;
+    width: 30%;
 }
 
-.hero-button {
-    width: fit-content;
+.discord-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.hero-text {
+    color: white;
+    font-weight: 600;
+    font-size: 1.6em;
+    letter-spacing: 2px;
     background: #73A580;
+    padding: 15px;
+    border-radius: 20px;
+    
 }

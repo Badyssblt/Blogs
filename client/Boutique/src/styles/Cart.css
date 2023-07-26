@@ -1,0 +1,26 @@
+.allcart {
+    position: absolute;
+    background-color: white;
+    right: 40%;
+}
+.cart {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    gap: 40px;
+}
+
+.cart img {
+    width: 150px;
+}
+
+.cart h1 {
+    font-family: 'Inter';
+}
+
+.delete-cart {
+    padding: 10px;
+    border-radius: 15px;
+    height: fit-content;
+    background: #73A580;
+}
