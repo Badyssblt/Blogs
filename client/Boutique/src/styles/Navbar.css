@@ -5,6 +5,7 @@ a, .connect {
     text-decoration: none;
     font-family: 'Inter';
     position: relative;
+    color: black;
 }
 
 .navigation {
@@ -17,7 +18,10 @@ a, .connect {
     flex-direction: row;
     align-items: center;
     gap: 30px;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .navigation li, .navigation a {
@@ -32,24 +36,38 @@ a, .connect {
 }
 
 .user-cat {
+    width: 300px;
     display: flex;
     flex-direction: row;
     gap: 15px;
-    justify-self: flex-end;
+    justify-content: flex-end;
 }
 
 .cart {
     position: relative;
 }
 
-.items-cart {
+.quantity {
     position: absolute;
-    bottom: 0;
-    background: red;
-    text-align: center;
-    padding: 1px;
-    right: 0;
+    top: -10px;
+    right: -10px;
+    width: 15px;
+    height: 15px;
+    background: #73A580;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quantity-span {
     font-size: 0.7em;
-    color: #73A580;
-    font-weight: 600;
+    font-family: 'Space Grotesk';
+    color: white;
+}
+
+.div-sell {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
 }

@@ -2,6 +2,9 @@
     position: absolute;
     background-color: white;
     right: 40%;
+    border: 1px solid #424242;
+    padding: 60px;
+    z-index: 99;
 }
 .cart {
     display: flex;

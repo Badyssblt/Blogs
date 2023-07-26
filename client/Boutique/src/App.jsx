@@ -32,7 +32,6 @@ function App() {
   useEffect(() => {
     if (uid !== null) {
       dispatch(getUser(uid));
-      console.log(uid);
     }
   }, [uid]);
 

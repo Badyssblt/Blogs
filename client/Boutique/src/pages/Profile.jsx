@@ -3,6 +3,7 @@ import Navbar from "../component/Navbar";
 import Log from "../component/Log";
 import Register from "../component/Register";
 import { UidContext } from "../component/AppContext";
+import ProfilComp from "../component/ProfilComp";
 
 const Profile = () => {
   const uid = useContext(UidContext);
@@ -26,7 +27,7 @@ const Profile = () => {
     <div className="profil-page">
       <Navbar />
       {uid ? (
-        <h1>UPDATE PAGE</h1>
+        <ProfilComp />
       ) : (
         <div className="log-container">
           <div className="sideForm">

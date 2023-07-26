@@ -1,0 +1,90 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    height: 400px;
+    background: white;
+}
+
+.main-container {
+    padding-left: 20px;
+}
+
+.left-nav {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-right: 1px black solid;
+    width: 30%;
+    height: 400px;
+}
+
+.left-nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+.item {
+    text-decoration: none;
+    font-family: 'Inter';
+    list-style-type: none;
+}
+
+.item:hover {
+    cursor: pointer;
+}
+
+/* AjouterArticle Component*/
+
+.title-form {
+    font-family: 'Merriweather';
+}
+
+.form-post {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-form, .input-form:focus {
+    width: 150px;
+    height: 23px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: black;
+    border-radius: 5px;
+}
+
+.input-form, select, textarea {
+    color: white;
+}
+
+.input-form::placeholder {
+    font-family: 'Inter';
+    color: white;
+}
+
+.submit-form {
+    width: 100px;
+    color: white;
+    padding: 0;
+}
+
+/* Account Component */
+
+.container-account {
+    display: flex;
+    flex-direction: column;
+}
+
+.account-title {
+    font-family: 'Merriweather';
+}
+
+.title-account {
+    font-family: 'Inter';
+    font-size: 1.2em;
+}

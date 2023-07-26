@@ -20,10 +20,22 @@ const Cart = () => {
       const datas = responses.map((response) => response.data);
       setData(datas);
       setLoading(false);
-      console.log(data);
     } catch (error) {
       console.log(error);
       setLoading(false);
+    }
+  };
+
+  const handleDelete = async (id, userId) => {
+    try {
+      const request = axios({
+        method: "patch",
+        url: `http://localhost:5000/auth/dislikes/${userId}`,
+        data: { likes: id },
+      });
+      window.location = "/";
+    } catch (err) {
+      console.log(err);
     }
   };
   useEffect(() => {
@@ -43,7 +55,14 @@ const Cart = () => {
           <div className="cart" key={article._id}>
             <img src={article.image} alt="" />
             <h1>{article.name}</h1>
-            <a className="delete-cart">Supprimer</a>
+            <a
+              className="delete-cart"
+              onClick={() => {
+                handleDelete(article._id, userData._id);
+              }}
+            >
+              Supprimer
+            </a>
           </div>
         ))}
     </div>
