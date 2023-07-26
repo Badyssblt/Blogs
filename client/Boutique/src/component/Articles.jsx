@@ -2,20 +2,32 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "../styles/Articles.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getPosts } from "../actions/post.action";
 import { isEmpty } from "../Utils/Utils";
+import { getUser, updateLikes } from "../actions/user.action";
 
 const Articles = () => {
   const posts = useSelector((state) => state.postReducer);
   const userData = useSelector((state) => state.userReducer);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
 
   const handleLikes = async (userId, id) => {
-    await axios({
-      method: "patch",
-      url: `http://localhost:5000/auth/likes/${userId}`,
-      withCredentials: true,
-      data: { likes: id },
-    }).then((res) => console.log(res));
+    try {
+      const response = await axios({
+        method: "patch",
+        url: `http://localhost:5000/auth/likes/${userId}`,
+        withCredentials: true,
+        data: { likes: id },
+      });
+      const updateLike = response.data.like;
+      dispatch(updateLikes(updateLike));
+      window.location = "/";
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

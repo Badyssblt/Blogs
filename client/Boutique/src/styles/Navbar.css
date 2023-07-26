@@ -1,3 +1,4 @@
+
 a, .connect {
     text-decoration: none;
     font-family: 'Inter';
@@ -5,6 +6,7 @@ a, .connect {
 
 .navigation {
     width: 100%;
+    background: white;
 }
 
 .navigation ul {

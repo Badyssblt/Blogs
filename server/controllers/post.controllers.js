@@ -5,6 +5,15 @@ module.exports.getPosts = async (req, res) => {
   res.status(200).json(posts);
 };
 
+module.exports.getOnePost = async (req, res) => {
+  try {
+    const post = await PostModel.findById(req.params.id);
+    res.status(200).json(post);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+};
+
 module.exports.setPosts = async (req, res) => {
   if (!req.body.name) {
     res.status(400).json({ message: "Merci d'ajouter un nom" });
